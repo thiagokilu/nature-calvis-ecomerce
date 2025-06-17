@@ -11,6 +11,12 @@ export default function ProductList({
   products,
   setProducts,
 }) {
+  // Log para debug
+  useEffect(() => {
+    console.log("ProductList - produtos recebidos:", products);
+    console.log("ProductList - quantidade de produtos:", products.length);
+  }, [products]);
+
   function handleSetMyCart(id) {
     const selectedProduct = products.find((product) => product.id === id);
 
@@ -37,16 +43,22 @@ export default function ProductList({
   return (
     <div>
       <div className="flex flex-row flex-wrap mt-20 ml-20 mr-20 mb-20 gap-10 items-center justify-center">
-        {products.map((item) => (
-          <Product
-            key={item.id}
-            id={item.id}
-            img={item.img}
-            title={item.titulo}
-            price={item.preco}
-            handleSetMyCart={handleSetMyCart}
-          />
-        ))}
+        {products && products.length > 0 ? (
+          products.map((item) => (
+            <Product
+              key={item.id}
+              id={item.id}
+              img={item.img}
+              title={item.titulo}
+              price={item.preco}
+              handleSetMyCart={handleSetMyCart}
+            />
+          ))
+        ) : (
+          <div className="text-center text-gray-500 mt-10">
+            <p>Nenhum produto encontrado</p>
+          </div>
+        )}
       </div>
     </div>
   );

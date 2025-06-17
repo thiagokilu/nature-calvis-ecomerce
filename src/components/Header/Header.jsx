@@ -15,8 +15,9 @@ export default function Header({ setOpenCart, myCart, handleSearch }) {
   const [valor, setValor] = useState("");
 
   function handleChange(event) {
-    setValor(event.target.value); // pega o valor do input
-    handleSearch(valor.toLowerCase());
+    const newValue = event.target.value;
+    setValor(newValue); // pega o valor do input
+    handleSearch(newValue); // Usar o novo valor diretamente
   }
   return (
     <div className="bg-bg-header text-text-primary text-lg flex flex-row items-center justify-between pr-10 w-full">

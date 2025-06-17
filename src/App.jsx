@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import NotFound from "./pages/NotFound/NotFound";
@@ -20,30 +20,40 @@ function App() {
     fetch("http://localhost:3000/produtos")
       .then((response) => response.json())
       .then((data) => {
-        setAllProducts(data);
-        setProducts(data);
+        console.log("Dados recebidos da API:", data);
+        const productsCopy = [...data];
+        setAllProducts(productsCopy);
+        setProducts(productsCopy);
         setCarregando(false);
       })
       .catch((error) => console.error(error));
   }, []);
 
-  function handleSearch(valor) {
+  const handleSearch = useCallback((valor) => {
     const termo = valor.trim().toLowerCase();
+    console.log("Termo de busca:", termo);
+    console.log("AllProducts antes da busca:", allProducts);
 
     if (!termo) {
-      console.log("Restaurando allProducts:", allProducts); // Verifique se contém todos os 4 itens
-      setProducts(allProducts);
+      console.log("Restaurando todos os produtos:", allProducts);
+      setProducts([...allProducts]);
     } else {
+      function removeAcentos(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+      
       const pesquisa = allProducts.filter((item) =>
-        item.titulo.toLowerCase().includes(termo)
+        removeAcentos(item.titulo.toLowerCase()).includes(removeAcentos(termo.toLowerCase()))
       );
-      setProducts(pesquisa);
+      console.log("Produtos filtrados:", pesquisa);
+      setProducts([...pesquisa]);
     }
-  }
+  }, [allProducts]);
 
   useEffect(() => {
     console.log("AllProducts atualizado:", allProducts);
-  }, [allProducts]);
+    console.log("Products atualizado:", products);
+  }, [allProducts, products]);
 
   return (
     <>
