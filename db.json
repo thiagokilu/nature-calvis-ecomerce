@@ -1,0 +1,36 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "img": "src/assets/img/shampoo.png",
+      "titulo": "Shampoo Antiqueda",
+      "preco": 29.9,
+      "descricao": "Shampoo especialmente formulado para reduzir a queda de cabelo e fortalecer os fios desde a raiz.",
+      "qtd": 1
+    },
+    {
+      "id": 2,
+      "img": "src/assets/img/sabonete.png",
+      "titulo": "Sabonete",
+      "preco": 9.5,
+      "descricao": "Sabonete suave para limpeza diária, com ingredientes naturais que hidratam e protegem a pele.",
+      "qtd": 1
+    },
+    {
+      "id": 3,
+      "img": "src/assets/img/oleo.png",
+      "titulo": "Óleo Capilar",
+      "preco": 39.9,
+      "descricao": "Óleo capilar nutritivo que hidrata profundamente,  e dá brilho aos cabelos.",
+      "qtd": 1
+    },
+    {
+      "id": 4,
+      "img": "src/assets/img/spray.png",
+      "titulo": "Spray Tônico",
+      "preco": 24.9,
+      "descricao": "Spray tônico para estimular o crescimento capilar e revitalizar o couro cabeludo.",
+      "qtd": 1
+    }
+  ]
+}

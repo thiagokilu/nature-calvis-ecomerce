@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cor principal de fundo */
+  --color-background: #1a0e3f; /* tom escuro de roxo, mais profundo que #643ba8 */
+
+  /* Cor principal (roxo médio) */
+  --color-primary: #643ba8;
+
+  /* Cor de destaque / acento */
+  --color-accent: #9b6fe0; /* tom mais claro e vibrante de roxo */
+
+  /* Cor para textos principais */
+  --color-text-primary: #e0dff7; /* tom claro para contraste com fundo escuro */
+
+  /* Cor para textos secundários */
+  --color-text-secondary: #b0a9d8; /* tom intermediário, suave */
+
+  /* Cor para elementos de fundo secundários */
+  --color-background-secondary: #2e1b60; /* roxo escuro, mas diferente do fundo principal */
+
+  /* Cor para bordas ou separadores */
+  --color-border: #4a2f8a; /* roxo escuro, para delimitar elementos */
+
+  --color-bg-header: #3f2876;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Remove setas no Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove setas no Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
